@@ -8,7 +8,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
 	echo "root:gitpod" | chpasswd && \
 	chmod +r /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg && \
 	apt-get update && apt-get upgrade -y && \
-	apt-get install -y git nano screen patch fakeroot build-essential \
+	apt-get install -y sudo git nano screen patch fakeroot build-essential \
 	devscripts libncurses5 libncurses5-dev libssl-dev bc flex bison libelf-dev \
 	libaudit-dev libgtk2.0-dev libperl-dev libslang2-dev asciidoc xmlto \
 	gnupg2 rsync lintian debhelper libdw-dev libnuma-dev sphinx-common \
