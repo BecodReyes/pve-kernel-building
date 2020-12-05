@@ -1,15 +1,15 @@
 FROM ubuntu:19.10
 
 RUN apt-get update && apt-get upgrade -y && \
-	apt-get install sudo && \
-	apt-get clean && apt-get autoremove
+	apt-get install sudo wget && \
+	apt-get clean && apt-get autoremove && \
+	wget -O /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg
 
 RUN echo "deb http://download.proxmox.com/debian/pve buster pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
-ADD proxmox-ve-release-6.x.gpg /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
-	echo "root:gitpod" | chpasswd && \
+	echo "root:passwd" | chpasswd && \
 	chmod +r /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg && \
 	apt-get update && apt-get upgrade -y && \
 	apt-get install -y git nano screen patch fakeroot build-essential \
