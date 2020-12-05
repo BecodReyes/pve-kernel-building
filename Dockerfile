@@ -21,5 +21,5 @@ RUN apt-get update && apt-get upgrade -y && \
 	apt-get clean && apt-get autoremove && \
 	rm -rf /var/lib/apt/lists/* /tmp/*
 
-USER gitpod
-RUN sudo echo "Running 'sudo' for Gitpod: success"
+USER builder
+RUN sudo echo "Running 'sudo' for builder: success"
