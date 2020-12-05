@@ -1,2 +1,2 @@
 image:
-    file: becod/pve-kernel-building
+    image: becod/pve-kernel-building
