@@ -6,7 +6,7 @@ RUN apt-get update && apt-get upgrade -y && \
 	wget -O /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg && \
 	echo "deb http://download.proxmox.com/debian/pve buster pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list && \
 	useradd -l -u 33334 -G sudo -md /home/builder -s /bin/bash -p builder builder && \
-	RUN { echo && echo "PS1='\[\e]0;\u \w\a\]\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \\\$ '" ; } >> /home/builder/.bashrc
+	RUN { echo && echo "PS1='\[\e]0;\u \w\a\]\[\033[01;32m\]\u\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\] \\\$ '" ; } >> /home/builder/.bashrc && \
 	sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers && \
 	echo "root:passwd" | chpasswd && echo "builder:passwd" | chpasswd && \
 	chmod +r /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg && \
