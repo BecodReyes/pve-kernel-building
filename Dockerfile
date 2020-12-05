@@ -14,5 +14,5 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
 	gnupg2 rsync lintian debhelper libdw-dev libnuma-dev sphinx-common \
 	asciidoc-base automake cpio dh-python file gcc kmod libiberty-dev \
 	libpve-common-perl libtool perl-modules python-minimal sed tar zlib1g-dev \
-	lz4 awscli apt-utils sudo && \
+	lz4 awscli apt-utils && \
 	apt-get clean && apt-get autoremove
