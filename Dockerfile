@@ -1,11 +1,11 @@
 FROM ubuntu:19.10
 
 RUN echo "deb http://download.proxmox.com/debian/pve buster pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list && \
-  wget http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg && \
-  chmod +r /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg
+ADD proxmox-ve-release-6.x.gpg /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg
 
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get upgrade -y && \
+RUN chmod +r /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg && \
+	apt-get update && apt-get upgrade -y && \
     apt-get install -y git nano screen patch fakeroot build-essential \
     devscripts libncurses5 libncurses5-dev libssl-dev bc flex bison libelf-dev \
     libaudit-dev libgtk2.0-dev libperl-dev libslang2-dev asciidoc xmlto \
