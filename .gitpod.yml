@@ -1,2 +1,2 @@
 image:
-    image: node:becod/pve-kernel-building
+    file: Dockerfile

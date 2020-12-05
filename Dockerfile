@@ -2,8 +2,7 @@ FROM ubuntu:19.10
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && \
-	apt-get install sudo wget && \
-	apt-get clean && apt-get autoremove && \
+	apt-get install sudo wget -y && \
 	wget -O /etc/apt/trusted.gpg.d/proxmox-ve-release-6.x.gpg http://download.proxmox.com/debian/proxmox-ve-release-6.x.gpg && \
 	echo "deb http://download.proxmox.com/debian/pve buster pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list && \
 	sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers && \
