@@ -1,4 +1,4 @@
-FROM ubuntu:19.10
+FROM ubuntu:21.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && \
@@ -21,7 +21,7 @@ RUN apt-get update && apt-get upgrade -y && \
 	gnupg2 rsync lintian debhelper libdw-dev libnuma-dev sphinx-common \
 	asciidoc-base automake cpio dh-python file gcc kmod libiberty-dev \
 	libpve-common-perl libtool perl-modules python-minimal sed tar zlib1g-dev \
-	lz4 awscli apt-utils && \
+	lz4 awscli apt-utils dwarves&& \
 	apt-get clean && apt-get autoremove && \
 	rm -rf /var/lib/apt/lists/* /tmp/*
 
