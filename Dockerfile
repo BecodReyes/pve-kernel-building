@@ -20,7 +20,7 @@ RUN apt-get update && apt-get upgrade -y && \
 	libaudit-dev libgtk2.0-dev libperl-dev libslang2-dev asciidoc xmlto \
 	gnupg2 rsync lintian debhelper libdw-dev libnuma-dev sphinx-common \
 	asciidoc-base automake cpio dh-python file gcc kmod libiberty-dev \
-	libpve-common-perl libtool perl-modules python-minimal sed tar zlib1g-dev \
+	libpve-common-perl libtool perl-modules python2-minimal sed tar zlib1g-dev \
 	lz4 awscli apt-utils dwarves&& \
 	apt-get clean && apt-get autoremove && \
 	rm -rf /var/lib/apt/lists/* /tmp/*
